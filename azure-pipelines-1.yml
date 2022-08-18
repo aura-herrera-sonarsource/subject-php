@@ -1,18 +1,6 @@
-# PHP
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'scngrok'
-    scannerMode: 'CLI'
-    configMode: 'file'
-    extraProperties: |
-      sonar.projectKey=alexandreholzhey_subject-php
-      sonar.organization=alexandreholzheyazdo
-# Test and package your PHP project.
-# Add steps that run tests, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/php
 
 trigger:
-- master
+  - master
 
 pool:
   vmImage: ubuntu-latest
@@ -32,5 +20,14 @@ steps:
 
 - script: composer install --no-interaction --prefer-dist
   displayName: 'composer install'
+
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'scngrok'
+    scannerMode: 'CLI'
+    configMode: 'file'
+    extraProperties: |
+      sonar.projectKey=alexandreholzhey_subject-php
+      sonar.organization=alexandreholzheyazdo
 
 - task: SonarQubeAnalyze@5
