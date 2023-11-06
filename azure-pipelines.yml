@@ -28,11 +28,11 @@ steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sc'
-    organization: 'alexandreholzhey'
+    organization: 'auraherrera0966'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'alexandreholzhey_subject-php'
-    cliProjectName: 'subject-php'
+    cliProjectKey: 'auraherrera0966_project'
+    cliProjectName: 'auraherrera0966_project'
     cliSources: '.'
 
 - task: SonarCloudAnalyze@1
